@@ -14,10 +14,10 @@ class BasicTypeckTest {
 
         Assert.assertEquals(7, (x + y).value.toInt())
         Assert.assertEquals(-1, (x - y).value.toInt())
-        Assert.assertEquals(0.75, x / y, 0.0)
+        Assert.assertEquals(0.75, (x / y).value, 0.0)
 
         Assert.assertEquals(1.0, 1.kilo.gram.value, 0.0)
-        Assert.assertFalse(2.second == 2.second)
+        Assert.assertTrue(2.second >= 1.5.second)
     }
 
     @Test
