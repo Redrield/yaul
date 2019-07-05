@@ -14,3 +14,4 @@ typealias Ohm = Fraction<Volt, Ampere>
 
 typealias Newton = Mult<Kilogram, Acceleration<Meter>>
 typealias Joule = Mult<Newton, Meter>
+typealias Watt = Fraction<Joule, Second>

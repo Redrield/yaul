@@ -18,11 +18,6 @@ class SIUnit<T: Key>(val value: Double) : Comparable<SIUnit<T>> {
     operator fun div(other: SIUnit<T>) = value / other.value
 
     override fun compareTo(other: SIUnit<T>) = value.compareTo(other.value)
-
-    @Suppress("UNCHECKED_CAST")
-    override fun equals(other: Any?) = (other as? SIUnit<T>)?.value == value
-
-    override fun hashCode() = value.hashCode()
 }
 
 @JvmName("fracCancelTimes")

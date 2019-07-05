@@ -17,6 +17,7 @@ class BasicTypeckTest {
         Assert.assertEquals(0.75, x / y, 0.0)
 
         Assert.assertEquals(1.0, 1.kilo.gram.value, 0.0)
+        Assert.assertFalse(2.second == 2.second)
     }
 
     @Test
@@ -29,7 +30,7 @@ class BasicTypeckTest {
         Assert.assertEquals(5.0, (v * 1.second).value, 0.0)
 
         val a = x / t / 1.second
-        Assert.assertEquals(x / t, a * 1.second)
-        Assert.assertEquals(x, a * t * 1.second)
+        Assert.assertEquals((x / t).value, (a * 1.second).value, 0.0)
+        Assert.assertEquals(x.value, (a * t * 1.second).value, 0.0)
     }
 }
