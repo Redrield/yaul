@@ -9,7 +9,7 @@ import com.redrield.units.derived.*
  */
 class UnitBuilder internal constructor(val value: Double, val prefixScalar: Double) {
     val meter get() = SIUnit<Meter>(value * prefixScalar)
-    val kilogram get() = SIUnit<Kilogram>(value * prefixScalar)
+    val gram get() = SIUnit<Kilogram>(value * prefixScalar / 1000.0)
     val second get() = SIUnit<Second>(value * prefixScalar)
     val amp get() = SIUnit<Ampere>(value * prefixScalar)
     val coulomb get() = SIUnit<Coulomb>(value * prefixScalar)
@@ -53,7 +53,7 @@ val <T : Key> SIUnit<T>.acceleration get() = SIUnit<Acceleration<T>>(value)
 /**
  * Prefixless getters for all defined units.
  */
-val Number.kilogram get() = SIUnit<Kilogram>(toDouble())
+val Number.gram get() = SIUnit<Kilogram>(toDouble() / 1000.0)
 val Number.second get() = SIUnit<Second>(toDouble())
 val Number.amp get() = SIUnit<Ampere>(toDouble())
 val Number.coulomb get() = SIUnit<Coulomb>(toDouble())

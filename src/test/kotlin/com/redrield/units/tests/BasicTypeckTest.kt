@@ -1,4 +1,4 @@
-package com.redrield.shitty.tests
+package com.redrield.units.tests
 
 import com.redrield.units.*
 import com.redrield.units.derived.Newton
@@ -16,7 +16,7 @@ class BasicTypeckTest {
         Assert.assertEquals(-1, (x - y).value.toInt())
         Assert.assertEquals(0.75, x / y, 0.0)
 
-        Assert.assertEquals(1000.0, 1.kilo.meter.value, 0.0)
+        Assert.assertEquals(1.0, 1.kilo.gram.value, 0.0)
     }
 
     @Test
@@ -24,7 +24,7 @@ class BasicTypeckTest {
         val x = 10.meter
         val t = 2.second
 
-        val v: SIUnit<Velocity> = x / t
+        val v: SIUnit<Velocity<Meter>> = x / t
         Assert.assertEquals(5, v.value.toInt())
         Assert.assertEquals(5.0, (v * 1.second).value, 0.0)
 
