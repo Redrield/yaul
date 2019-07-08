@@ -1,12 +1,29 @@
 package com.redrield.units.tests
 
 import com.redrield.units.*
-import com.redrield.units.derived.Newton
 import com.redrield.units.derived.Velocity
 import org.junit.Assert
 import org.junit.Test
 
 class BasicTypeckTest {
+    @Test
+    fun compileTimeTest() {
+        val vel = 2.meter.velocity
+
+        val x1: SIUnit<Meter> = vel * 2.second
+        val x2: SIUnit<Meter> = 2.second * vel
+
+        x1 + x2
+
+        val charge: SIUnit<Mult<Ampere, Second>> = 2.amp * 1.second
+
+        charge + charge
+
+        val vel2 = 2.meter.velocity
+        val temp: SIUnit<Meter> = vel2 * 2.second
+
+        temp + temp
+    }
     @Test
     fun testArithmetic() {
         val x = 3.meter
@@ -17,7 +34,7 @@ class BasicTypeckTest {
         Assert.assertEquals(0.75, x / y, 0.0)
 
         Assert.assertEquals(1.0, 1.kilo.gram.value, 0.0)
-        Assert.assertFalse(2.second == 2.second)
+//        Assert.assertFalse(2.second == 2.second)
     }
 
     @Test
